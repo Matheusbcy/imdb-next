@@ -6,6 +6,7 @@ export default async function MoviePage({ params }) {
     `https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.API_KEY}&language=pt-BR`
   );
   const movie = await res.json();
+  console.log(movie)
   return (
     <div className="w-full">
       <div className="p-4 md:pt-8 flex flex-col md:flex-row content_center max-w-6xl mx-auto md:space-x-6">
@@ -20,7 +21,7 @@ export default async function MoviePage({ params }) {
         ></Image>
         <div className="p-2">
           <h2 className="text-lg mb-3 font-bold">
-            {movie.tittle || movie.name}
+            {movie.title || movie.name}
           </h2>
           <p className="text-lg mb-3">{movie.overview}</p>
           <p className="mb-3">
